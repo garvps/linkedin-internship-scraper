@@ -1,12 +1,22 @@
+"""
+Store Scraped Job Listings into SQLite Database
+
+This python script takes job listing data scraped from LinkedIn (in 'fetch_listings.py')
+and saves it into an SQLite database. The database will store job title, company,
+location, and apply link in the 'internships' table.
+"""
+
+#import necessary library
 import sqlite3
 
+#inport scraped jobs from 'fetch_listings.py'
 from fetch_listings import jobs
 
-# Connect to database
+#connect to the database
 conn = sqlite3.connect("jobs.db")
 cursor = conn.cursor()
 
-# Create table
+#create the table
 cursor.execute(
     """
     CREATE TABLE IF NOT EXISTS internships (
@@ -19,7 +29,7 @@ cursor.execute(
     """
 )
 
-# Insert data
+#inserting data
 for job in jobs:
     cursor.execute("INSERT INTO internships (title, company, location, apply_link) VALUES (?, ?, ?, ?)",
                    (job["Title"], job["Company"], job["Location"], job["Apply Link"]))
