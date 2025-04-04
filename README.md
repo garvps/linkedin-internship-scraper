@@ -74,6 +74,8 @@ linkedin-internship-scraper/
 │-- jobs.db          # SQLite database
 │-- requirements.txt # Python dependencies
 │-- README.md        # Project documentation
+│-- templates/       # Directory for HTML files
+│   └── index.html   # Main HTML file for Flask app
 ```
 
 ## License
