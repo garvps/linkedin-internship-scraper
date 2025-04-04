@@ -6,14 +6,14 @@ all the scrapped software engineering internship positions. The listings are fet
 stored in the database before to running this app.
 """
 
-# Import necessary libraries
+#import necessary libraries
 from flask import Flask, render_template
 import sqlite3
 
-# Initializing the Flask application
+#initializing the Flask application
 app = Flask(__name__)
 
-# Define the homepage route
+#define the homepage route
 @app.route("/")
 def home():
     conn = sqlite3.connect("jobs.db")
@@ -24,5 +24,5 @@ def home():
     return render_template("index.html", jobs=jobs)
 
 if __name__ == "__main__":
-    # Enable debug mode for hot reload and error messages
+    #enable debug mode for hot reload and error messages
     app.run(debug=True)
