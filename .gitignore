@@ -1,0 +1,24 @@
+# Virtual environment
+venv/
+
+# Byte-compiled / compiled files
+__pycache__/
+*.py[cod]
+
+# SQLite database
+jobs.db
+
+# CSV output files
+linkedin_jobs.csv
+
+# Logs and cache
+*.log
+*.cache/
+
+# Environment variables and secrets
+.env
+config.json
+
+# OS-specific files
+.DS_Store
+Thumbs.db
