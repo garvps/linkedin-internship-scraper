@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tech Internship Listings</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Job Scraper</a>
+    </nav>
+
+    <div class="container mt-5">
+        <h1 class="text-center">Tech Internship Listings</h1>
+
+        <form method="GET" action="/">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" name="search" placeholder="Search by title, company, or location">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit">Search</button>
+                </div>
+            </div>
+        </form>
+
+        <div class="row">
+            {% for job in jobs %}
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ job[0] }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ job[1] }}</h6>
+                        <p class="card-text">{{ job[2] }}</p>
+                        <a href="{{ job[3] }}" class="card-link" target="_blank">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <footer class="bg-light text-center py-4">
+        <p>Job Scraper App - Built with Flask | <a href="https://github.com/yourusername" target="_blank">GitHub</a></p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
